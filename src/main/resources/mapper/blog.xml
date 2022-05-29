@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.MainMapper" >
+
+   <select id="selectTest" resultType="java.util.HashMap">
+      select * from TB_TEST
+   </select>
+   
+   <select id="getBlogList" resultType="com.example.demo.vo.MainVo">
+   	select * from blog_list
+  	
+   </select>
+   
+   <select id="getDetail" parameterType="Integer" resultType="java.util.HashMap" >
+   	select * from blog_list
+   	where number = #{number}
+   
+   </select>
+   <insert id="saveList" parameterType="java.util.HashMap">
+   	insert into blog_list 
+   	(
+   	number
+   	,title
+   	, content
+   	,date) 
+   	values(
+   	'5'
+   	,#{title}
+   	,#{content}
+   	,sysdate()
+   	)   
+   </insert>
+</mapper>
